@@ -1,0 +1,42 @@
+var readlineSync=require("readline-sync");
+var score=0;
+var userName = readlineSync.question("What is your name? ");
+console.log("Welcome "+userName+",Let's see how well do you know about jaipur?");
+
+function play(question,answer){
+var userAnswer=readlineSync.question(question);
+
+ if(userAnswer === answer){
+   console.log("Well Done!, Right Answer!")
+ score=score+1;
+ console.log("Your current score is: ",score);
+ console.log("----------");
+ }else{
+   console.log("Oops, Wrong answer!")
+   score=score-1;
+    console.log("Your current score is: ",score);
+    console.log("----------");
+ }
+}
+var questions=[{
+  question:"Jaipur was built in which year? ",
+  answer:"1727"
+},{
+question:"Jaipur is also known as? ",
+answer:"pink city"
+},{
+question:"Which building is also known as-palace of breeze? ",
+answer:"hawa mahal"
+},{
+question:"Which is the first planned city of India? ",
+answer:"jaipur"
+}];
+for(var i=0;i<questions.length;i++){
+  var currentQuestion=questions[i];
+  play(currentQuestion.question,currentQuestion.answer);
+}
+
+
+
+console.log("YAY!You scored:",score);
+ console.log("Game Over!");
